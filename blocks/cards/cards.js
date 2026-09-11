@@ -8,22 +8,25 @@ export default function decorate(block) {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
     while (row.firstElementChild) li.append(row.firstElementChild);
+
+    // Field order is always image, eyebrow, text: the eyebrow is the first
+    // wrapper that isn't the image wrapper.
+    const imageWrapper = [...li.children].find((div) => div.querySelector('picture'));
+    const eyebrowWrapper = [...li.children].find((div) => div !== imageWrapper);
+    const eyebrowText = eyebrowWrapper?.textContent.trim();
+    if (eyebrowWrapper) eyebrowWrapper.remove();
+
     [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+      div.className = div === imageWrapper ? 'cards-card-image' : 'cards-card-body';
     });
 
     // Add eyebrow span above card body content
-    const cardBody = li.querySelector('.cards-card-body');
-    if (cardBody) {
-      const eyebrow = cardBody.querySelector('[data-aue-prop="eyebrow"]');
-      if (eyebrow && eyebrow.textContent.trim()) {
-        const span = document.createElement('span');
-        span.classList.add('card-eyebrow');
-        span.textContent = eyebrow.textContent.trim();
-        cardBody.insertBefore(span, cardBody.firstElementChild);
-        eyebrow.remove();
-      }
+    if (eyebrowText) {
+      const cardBody = li.querySelector('.cards-card-body');
+      const span = document.createElement('span');
+      span.classList.add('card-eyebrow');
+      span.textContent = eyebrowText;
+      if (cardBody) cardBody.insertBefore(span, cardBody.firstElementChild);
     }
 
     ul.append(li);

@@ -7,19 +7,25 @@
   position: relative;
   padding: 40px 24px;
   min-height: 300px;
+  text-align: left;
 }
 
 .hero h1 {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   color: var(--background-color);
+}
+
+.hero > div:last-child > div {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero .hero-eyebrow {
   display: block;
   width: fit-content;
-  margin: 0 auto 16px;
+  margin: 0 0 16px;
   border-radius: 154px;
   background-color: var(--orange-color);
   padding: 4px 10px;

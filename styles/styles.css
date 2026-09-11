@@ -298,17 +298,14 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 0;
 }
 
 main > .section > div {
   max-width: 1200px;
   margin: auto;
   padding: 0 24px;
-}
-
-main > .section:first-of-type {
-  margin-top: 0;
+  text-align: center;
 }
 
 @media (width >= 900px) {
@@ -321,6 +318,28 @@ main > .section:first-of-type {
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main > .section:nth-of-type(2) {
+  background-color: var(--orange-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main > .section:nth-of-type(3) {
+  margin: 0;
+  padding: 40px 0;
+  background-color: tan;
+}
+main > .section:nth-of-type(4) {
+  margin-top: 40px;
+}
+
+main > .section:nth-of-type(5) {
+  background-color: #000;
+  color: #fff;
   margin: 0;
   padding: 40px 0;
 }
