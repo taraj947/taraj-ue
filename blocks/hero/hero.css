@@ -16,6 +16,19 @@
   color: var(--background-color);
 }
 
+.hero .hero-eyebrow {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 16px;
+  border-radius: 154px;
+  background-color: var(--orange-color);
+  padding: 4px 10px;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 .hero picture {
   position: absolute;
   z-index: -1;
