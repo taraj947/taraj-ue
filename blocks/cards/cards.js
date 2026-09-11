@@ -13,16 +13,16 @@ export default function decorate(block) {
       else div.className = 'cards-card-body';
     });
 
-    // Add tag span above card body content
+    // Add eyebrow span above card body content
     const cardBody = li.querySelector('.cards-card-body');
     if (cardBody) {
-      const tag = cardBody.querySelector('[data-aue-prop="tag"]');
-      if (tag && tag.textContent.trim()) {
+      const eyebrow = cardBody.querySelector('[data-aue-prop="eyebrow"]');
+      if (eyebrow && eyebrow.textContent.trim()) {
         const span = document.createElement('span');
-        span.classList.add('card-tag');
-        span.textContent = tag.textContent.trim();
+        span.classList.add('card-eyebrow');
+        span.textContent = eyebrow.textContent.trim();
         cardBody.insertBefore(span, cardBody.firstElementChild);
-        tag.remove();
+        eyebrow.remove();
       }
     }
 
