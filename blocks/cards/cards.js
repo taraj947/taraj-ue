@@ -12,6 +12,20 @@ export default function decorate(block) {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
       else div.className = 'cards-card-body';
     });
+
+    // Add tag span above card body content
+    const cardBody = li.querySelector('.cards-card-body');
+    if (cardBody) {
+      const tag = cardBody.querySelector('[data-aue-prop="tag"]');
+      if (tag && tag.textContent.trim()) {
+        const span = document.createElement('span');
+        span.classList.add('card-tag');
+        span.textContent = tag.textContent.trim();
+        cardBody.insertBefore(span, cardBody.firstElementChild);
+        tag.remove();
+      }
+    }
+
     ul.append(li);
   });
   ul.querySelectorAll('picture > img').forEach((img) => {
