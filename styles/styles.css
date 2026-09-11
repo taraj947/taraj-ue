@@ -333,6 +333,7 @@ main > .section:nth-of-type(3) {
   padding: 40px 0;
   background-color: tan;
 }
+
 main > .section:nth-of-type(4) {
   margin-top: 40px;
 }
