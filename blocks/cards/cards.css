@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  text-align: left;
 }
 
 .cards > ul > li {
